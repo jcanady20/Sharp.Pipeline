@@ -49,6 +49,7 @@ namespace Sharp.Pipeline.Example
 		}
 		static void MainLoop()
 		{
+            Help();
 			bool pContinue = true;
 			while (pContinue)
 			{
@@ -56,8 +57,11 @@ namespace Sharp.Pipeline.Example
 
                 var cmdLine = Console.ReadLine();
                 var parms = ParseCommand(cmdLine);
-				if (parms.Length == 0)
-					continue;
+                if (parms.Length == 0)
+                {
+                    Help();
+                    continue;
+                }
 
 				switch (parms[0].ToLower())
 				{
